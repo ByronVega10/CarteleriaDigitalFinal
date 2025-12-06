@@ -6,6 +6,7 @@ const playerRoutes = require('./routes/playerRoutes');
 const contentRoutes = require('./routes/contentRoutes');
 const authRoutes = require('./routes/authRoutes');
 const playlistRoutes = require("./routes/playlistRoutes");
+const screenRoutes = require('./routes/screenRoutes');
 
 const app = express();
 connectDB();
@@ -26,7 +27,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/players', playerRoutes);
 app.use('/api/contents', contentRoutes);
 app.use("/api/playlists", playlistRoutes);
-
+app.use('/api/screens', screenRoutes);
+app.use('/player', express.static(path.join(__dirname, '../../player')));
 
 app.get('/', (req, res) => res.send('Servidor Cartelería Digital Activo'));
 

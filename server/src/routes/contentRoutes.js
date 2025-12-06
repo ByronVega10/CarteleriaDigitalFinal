@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const ffmpeg = require("fluent-ffmpeg"); // ← Para extraer duración real
 const { createContent, getAllContents, deleteContent } = require("../repositories/contentRepository");
 const router = express.Router();
+const BASE_URL = process.env.BASE_URL || "https://carteleriadigitalfinal.onrender.com";
 
 // ================= STORAGE & MULTER =================
 const storage = multer.diskStorage({
@@ -63,7 +64,7 @@ router.post("/upload", upload.single("video"), async (req, res) => {
 
             const newContent = await createContent({
                 title: req.body.title || req.file.originalname,
-                fileUrl: `http://localhost:3000/videos/${req.file.filename}`,
+                fileUrl: `${BASE_URL}/videos/${req.file.filename}`,
                 durationSec: duration,
                 assignedScreens: [],
                 scheduled: new Date()

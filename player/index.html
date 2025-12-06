@@ -1,16 +1,23 @@
-<!-- player/index.html -->
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Cartelería Digital Player</title>
+  <meta charset="utf-8" />
+  <title>Player - Cartelería</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-    body { margin: 0; background: black; overflow: hidden; }
-    video, img { width: 100vw; height: 100vh; object-fit: cover; }
+    html,body{height:100%;margin:0;background:#000}
+    #video{width:100%;height:100%;object-fit:contain;background:#000}
+    .overlay{position:absolute;left:10px;top:10px;color:#fff;z-index:2;font-family:Arial}
+    .controls{position:absolute;right:10px;top:10px;z-index:2}
   </style>
 </head>
 <body>
-  <video id="player" autoplay muted></video>
+  <div class="overlay" id="overlay">Iniciando...</div>
+  <video id="video" autoplay muted playsinline></video>
+
+  <script>
+    // punto de entrada: el player.js se puede inyectar aquí o incluír como archivo
+  </script>
   <script src="player.js"></script>
 </body>
 </html>
