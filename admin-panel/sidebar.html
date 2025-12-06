@@ -1,0 +1,55 @@
+<div id="sidebar" class="sidebar">
+    <h2>Menú</h2>
+    <ul>
+        <li><a href="home.html">🏠 Home</a></li>
+        <li><a href="contenido.html">🎬 Contenidos</a></li>
+        <li><a href="playlist.html">📂 Listas de Reproducción</a></li>
+        <li><a href="pantallas.html">🖥️ Pantallas</a></li>
+        <li><a href="programacion.html">🗓️ Programación</a></li>
+    </ul>
+</div>
+
+<style>
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 220px;
+        height: 100vh;
+        background: #1d3557;
+        padding: 20px;
+        color: white;
+        font-family: Arial, sans-serif;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 20px;
+        color: #f1faee;
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .sidebar ul li {
+        margin: 15px 0;
+    }
+
+    .sidebar ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+    .sidebar ul li a:hover {
+        color: #a8dadc;
+    }
+
+    /* desplazar el contenido principal */
+    body {
+        margin-left: 240px;
+    }
+</style>

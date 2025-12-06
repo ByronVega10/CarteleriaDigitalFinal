@@ -1,0 +1,93 @@
+<!-- playlist.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listas de Reproducción</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<!-- 🔹 Sidebar dinámico -->
+<div id="sidebar-container"></div>
+
+<script>
+    // Cargar automáticamente el sidebar.html
+    fetch("sidebar.html")
+        .then(res => res.text())
+        .then(html => document.getElementById("sidebar-container").innerHTML = html);
+</script>
+
+<!-- 🔹 Contenido principal desplazado -->
+<div class="contenido">
+
+    <h1>Listas de Reproducción</h1>
+
+    <main class="page">
+
+        <button class="btn-primary" onclick="openPlaylistModal()">+ Crear Playlist</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cant. Contenido</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody id="playlist-list">
+                <!-- Playlists cargadas dinámicamente -->
+            </tbody>
+        </table>
+
+    </main>
+
+    <!-- Modal para crear playlist (nombre) -->
+    <div id="playlistModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Crear Nueva Playlist</h3>
+            <input type="text" id="playlistName" placeholder="Nombre de la playlist" />
+
+            <button class="btn-primary" onclick="createPlaylist()">Siguiente</button>
+            <button class="btn-secondary" onclick="closePlaylistModal()">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Modal para agregar videos a la playlist -->
+    <div id="playlistVideosModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Seleccionar Videos para la Playlist</h3>
+
+            <div id="videosCheckboxList">
+                <!-- JS carga los videos aquí -->
+            </div>
+
+            <button class="btn-primary" onclick="savePlaylistVideos()">Guardar Playlist</button>
+            <button class="btn-secondary" onclick="closeVideosModal()">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Modal para editar playlist -->
+    <div id="editPlaylistModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Editar Playlist</h3>
+
+            <label>Nombre:</label>
+            <input type="text" id="editPlaylistName">
+
+            <h4>Seleccionar Videos</h4>
+            <div id="editVideosCheckboxList"></div>
+
+            <button class="btn-primary" onclick="saveEditedPlaylist()">Guardar Cambios</button>
+            <button class="btn-secondary" onclick="closeEditPlaylistModal()">Cancelar</button>
+        </div>
+    </div>
+
+</div> <!-- cierre contenido -->
+
+<script src="app.js"></script>
+</body>
+</html>

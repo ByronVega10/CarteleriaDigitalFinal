@@ -1,0 +1,49 @@
+<!-- pantallas.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pantallas</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<!-- 🔹 Sidebar dinámico -->
+<div id="sidebar-container"></div>
+
+<script>
+    // Insertar el sidebar
+    fetch("sidebar.html")
+        .then(res => res.text())
+        .then(html => document.getElementById("sidebar-container").innerHTML = html);
+</script>
+
+<!-- 🔹 Contenido principal (desplazado a la derecha) -->
+<div class="contenido">
+
+    <h1>Pantallas Registradas</h1>
+
+    <main class="page">
+        <table>
+            <thead>
+                <tr>
+                    <th>Pantalla</th>
+                    <th>Estado</th>
+                    <th>Última Sync</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody id="pantallas-list">
+                <!-- Pantallas cargadas dinámicamente por JS -->
+            </tbody>
+        </table>
+    </main>
+
+</div> <!-- cierre .contenido -->
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contenido</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- 🔹 Sidebar dinámico -->
+<div id="sidebar-container"></div>
+
+<script>
+    // Cargar el sidebar en todas las páginas del panel
+    fetch("sidebar.html")
+        .then(res => res.text())
+        .then(html => document.getElementById("sidebar-container").innerHTML = html);
+</script>
+
+<!-- 🔸 Contenido principal (se corre a la derecha del sidebar) -->
+<div class="contenido">
+
+    <h2>Gestión de Contenidos</h2>
+
+    <!-- 🔥 FORMULARIO SUBIDA VIDEO -->
+    <form id="uploadForm" enctype="multipart/form-data">
+        <label>Nombre del video:</label>
+        <input type="text" id="videoTitle" placeholder="Título opcional">
+
+        <label>Seleccionar video (MP4):</label>
+        <input type="file" id="videoFile" accept="video/mp4" required>
+
+        <button type="button" onclick="subirVideo()" class="btn-primary">
+            Subir Video
+        </button>
+    </form>
+
+    <hr>
+
+    <!-- TABLA DE CONTENIDOS -->
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="contenido-list">
+            <!-- Aquí JS cargará los videos -->
+        </tbody>
+    </table>
+
+</div> <!-- cierre .contenido -->
+
+<!-- SCRIPTS -->
+<script src="app.js"></script>
+<script>
+    loadContenido();
+</script>
+
+</body>
+</html>

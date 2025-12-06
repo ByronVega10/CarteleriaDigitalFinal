@@ -1,0 +1,38 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<!-- 🔹 Sidebar dinámico -->
+<div id="sidebar-container"></div>
+
+<script>
+    // Cargar el sidebar dinámicamente
+    fetch("sidebar.html")
+        .then(res => res.text())
+        .then(html => document.getElementById("sidebar-container").innerHTML = html);
+</script>
+
+<!-- 🔸 Contenido principal (se mueve a la derecha del sidebar) -->
+<div class="contenido">
+
+    <h1>Panel de Administración</h1>
+
+    <main class="grid">
+        <a href="contenido.html" class="card">Contenido</a>
+        <a href="playlist.html" class="card">Listas de Reproducción</a>
+        <a href="pantallas.html" class="card">Pantallas</a>
+        <a href="programacion.html" class="card">Programación</a>
+    </main>
+
+</div> <!-- cierre .contenido -->
+
+</body>
+</html>
